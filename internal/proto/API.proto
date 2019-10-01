@@ -1,0 +1,36 @@
+syntax = "proto3";
+package calendar;
+
+import "google/protobuf/timestamp.proto";
+import "events.proto";
+
+message updateRequest {
+    Event event = 1;
+    int32 id = 2;
+}
+message removeRequest {
+    int32 id = 2;
+}
+
+message changeEventResult {
+    string error = 1;
+    bool result = 2;
+}
+
+message getResult {
+    string error = 1;
+    EventList events = 2;
+}
+
+message getRequest {
+    google.protobuf.Timestamp dateTime = 1;
+}
+
+service API {
+    rpc insertEvent(Event) returns(changeEventResult) {}
+    rpc updateEvent(updateRequest) returns(changeEventResult) {}
+    rpc removeEvent(removeRequest) returns(changeEventResult) {}
+    rpc getDailyEvents(getRequest) returns(getResult) {}
+    rpc getWeeklyEvents(getRequest) returns(getResult) {}
+    rpc getMonthlyEvents(getRequest) returns(getResult) {}
+}

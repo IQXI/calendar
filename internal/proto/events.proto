@@ -1,0 +1,24 @@
+syntax = "proto3";
+package calendar;
+
+import "google/protobuf/timestamp.proto";
+
+message EventList {
+    repeated Event events = 1;
+}
+
+message Event {
+    int32 UUID = 1;
+    string header = 2;
+    google.protobuf.Timestamp dateTime = 3;
+    string description = 4;
+    string owner = 5;
+    int32 mailingDuration = 6;
+    EventDuration eventDuration = 7;
+}
+
+message EventDuration {
+    google.protobuf.Timestamp start = 1;
+    google.protobuf.Timestamp stop = 2;
+}
+
