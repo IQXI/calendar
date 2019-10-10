@@ -25,90 +25,51 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type UpdateRequest struct {
+type ChangeEventRequest struct {
 	Event                *Event   `protobuf:"bytes,1,opt,name=event,proto3" json:"event,omitempty"`
-	Id                   int32    `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id                   string   `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateRequest) Reset()         { *m = UpdateRequest{} }
-func (m *UpdateRequest) String() string { return proto.CompactTextString(m) }
-func (*UpdateRequest) ProtoMessage()    {}
-func (*UpdateRequest) Descriptor() ([]byte, []int) {
+func (m *ChangeEventRequest) Reset()         { *m = ChangeEventRequest{} }
+func (m *ChangeEventRequest) String() string { return proto.CompactTextString(m) }
+func (*ChangeEventRequest) ProtoMessage()    {}
+func (*ChangeEventRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_cac38fe7d323f2d0, []int{0}
 }
 
-func (m *UpdateRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UpdateRequest.Unmarshal(m, b)
+func (m *ChangeEventRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeEventRequest.Unmarshal(m, b)
 }
-func (m *UpdateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UpdateRequest.Marshal(b, m, deterministic)
+func (m *ChangeEventRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeEventRequest.Marshal(b, m, deterministic)
 }
-func (m *UpdateRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateRequest.Merge(m, src)
+func (m *ChangeEventRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeEventRequest.Merge(m, src)
 }
-func (m *UpdateRequest) XXX_Size() int {
-	return xxx_messageInfo_UpdateRequest.Size(m)
+func (m *ChangeEventRequest) XXX_Size() int {
+	return xxx_messageInfo_ChangeEventRequest.Size(m)
 }
-func (m *UpdateRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_UpdateRequest.DiscardUnknown(m)
+func (m *ChangeEventRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeEventRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_UpdateRequest proto.InternalMessageInfo
+var xxx_messageInfo_ChangeEventRequest proto.InternalMessageInfo
 
-func (m *UpdateRequest) GetEvent() *Event {
+func (m *ChangeEventRequest) GetEvent() *Event {
 	if m != nil {
 		return m.Event
 	}
 	return nil
 }
 
-func (m *UpdateRequest) GetId() int32 {
+func (m *ChangeEventRequest) GetId() string {
 	if m != nil {
 		return m.Id
 	}
-	return 0
-}
-
-type RemoveRequest struct {
-	Id                   int32    `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *RemoveRequest) Reset()         { *m = RemoveRequest{} }
-func (m *RemoveRequest) String() string { return proto.CompactTextString(m) }
-func (*RemoveRequest) ProtoMessage()    {}
-func (*RemoveRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cac38fe7d323f2d0, []int{1}
-}
-
-func (m *RemoveRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RemoveRequest.Unmarshal(m, b)
-}
-func (m *RemoveRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RemoveRequest.Marshal(b, m, deterministic)
-}
-func (m *RemoveRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveRequest.Merge(m, src)
-}
-func (m *RemoveRequest) XXX_Size() int {
-	return xxx_messageInfo_RemoveRequest.Size(m)
-}
-func (m *RemoveRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_RemoveRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RemoveRequest proto.InternalMessageInfo
-
-func (m *RemoveRequest) GetId() int32 {
-	if m != nil {
-		return m.Id
-	}
-	return 0
+	return ""
 }
 
 type ChangeEventResult struct {
@@ -123,7 +84,7 @@ func (m *ChangeEventResult) Reset()         { *m = ChangeEventResult{} }
 func (m *ChangeEventResult) String() string { return proto.CompactTextString(m) }
 func (*ChangeEventResult) ProtoMessage()    {}
 func (*ChangeEventResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cac38fe7d323f2d0, []int{2}
+	return fileDescriptor_cac38fe7d323f2d0, []int{1}
 }
 
 func (m *ChangeEventResult) XXX_Unmarshal(b []byte) error {
@@ -170,7 +131,7 @@ func (m *GetResult) Reset()         { *m = GetResult{} }
 func (m *GetResult) String() string { return proto.CompactTextString(m) }
 func (*GetResult) ProtoMessage()    {}
 func (*GetResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cac38fe7d323f2d0, []int{3}
+	return fileDescriptor_cac38fe7d323f2d0, []int{2}
 }
 
 func (m *GetResult) XXX_Unmarshal(b []byte) error {
@@ -216,7 +177,7 @@ func (m *GetRequest) Reset()         { *m = GetRequest{} }
 func (m *GetRequest) String() string { return proto.CompactTextString(m) }
 func (*GetRequest) ProtoMessage()    {}
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_cac38fe7d323f2d0, []int{4}
+	return fileDescriptor_cac38fe7d323f2d0, []int{3}
 }
 
 func (m *GetRequest) XXX_Unmarshal(b []byte) error {
@@ -245,8 +206,7 @@ func (m *GetRequest) GetDateTime() *timestamp.Timestamp {
 }
 
 func init() {
-	proto.RegisterType((*UpdateRequest)(nil), "calendar.updateRequest")
-	proto.RegisterType((*RemoveRequest)(nil), "calendar.removeRequest")
+	proto.RegisterType((*ChangeEventRequest)(nil), "calendar.changeEventRequest")
 	proto.RegisterType((*ChangeEventResult)(nil), "calendar.changeEventResult")
 	proto.RegisterType((*GetResult)(nil), "calendar.getResult")
 	proto.RegisterType((*GetRequest)(nil), "calendar.getRequest")
@@ -255,30 +215,29 @@ func init() {
 func init() { proto.RegisterFile("API.proto", fileDescriptor_cac38fe7d323f2d0) }
 
 var fileDescriptor_cac38fe7d323f2d0 = []byte{
-	// 354 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x51, 0x61, 0x6b, 0xe2, 0x40,
-	0x14, 0x3c, 0x15, 0x45, 0x5f, 0x4e, 0xbd, 0x5b, 0xe5, 0x4e, 0xd2, 0x0f, 0x4a, 0xa0, 0x20, 0x14,
-	0x22, 0x58, 0xe8, 0x37, 0x5b, 0x04, 0x2d, 0x08, 0x6d, 0x91, 0x20, 0xf4, 0x73, 0x34, 0xaf, 0xeb,
-	0xd2, 0x24, 0x6b, 0x77, 0x37, 0x42, 0xff, 0x46, 0x7f, 0x71, 0x71, 0x37, 0x1a, 0x8c, 0xd0, 0x16,
-	0x3f, 0xbe, 0x79, 0x33, 0xb3, 0xfb, 0x66, 0xa0, 0x36, 0x9e, 0xcf, 0xdc, 0x8d, 0xe0, 0x8a, 0x93,
-	0xea, 0xca, 0x0f, 0x31, 0x0e, 0x7c, 0x61, 0x77, 0x29, 0xe7, 0x34, 0xc4, 0x81, 0xc6, 0x97, 0xc9,
-	0xcb, 0x40, 0xb1, 0x08, 0xa5, 0xf2, 0xa3, 0x8d, 0xa1, 0xda, 0xbf, 0x71, 0x8b, 0xb1, 0x92, 0x66,
-	0x72, 0xee, 0xa1, 0x9e, 0x6c, 0x02, 0x5f, 0xa1, 0x87, 0x6f, 0x09, 0x4a, 0x45, 0x2e, 0xa1, 0xac,
-	0x09, 0x9d, 0x42, 0xaf, 0xd0, 0xb7, 0x86, 0x4d, 0x77, 0xef, 0xec, 0x4e, 0x77, 0xb0, 0x67, 0xb6,
-	0xa4, 0x01, 0x45, 0x16, 0x74, 0x8a, 0xbd, 0x42, 0xbf, 0xec, 0x15, 0x59, 0xe0, 0x74, 0xa1, 0x2e,
-	0x30, 0xe2, 0xdb, 0x83, 0x4f, 0x9e, 0x30, 0x86, 0xbf, 0xab, 0xb5, 0x1f, 0x53, 0x34, 0x36, 0x28,
-	0x93, 0x50, 0x91, 0x36, 0x94, 0x51, 0x08, 0x2e, 0xf4, 0x63, 0x35, 0xcf, 0x0c, 0xe4, 0x1f, 0x54,
-	0x84, 0xde, 0x6b, 0x79, 0xd5, 0x4b, 0x27, 0xe7, 0x09, 0x6a, 0x14, 0xbf, 0x96, 0x5e, 0x41, 0xc5,
-	0x9c, 0xa7, 0xa5, 0xd6, 0xb0, 0x95, 0xfb, 0xfe, 0x03, 0x93, 0xca, 0x4b, 0x29, 0xce, 0x04, 0x40,
-	0xfb, 0x99, 0x0f, 0xdf, 0x40, 0x75, 0x97, 0xc3, 0x82, 0x45, 0x98, 0xde, 0x6e, 0xbb, 0x26, 0x4b,
-	0x77, 0x9f, 0xa5, 0xbb, 0xd8, 0x67, 0xe9, 0x1d, 0xb8, 0xc3, 0x8f, 0x12, 0x94, 0xc6, 0xf3, 0x19,
-	0x19, 0x81, 0xc5, 0x62, 0x89, 0x42, 0xe9, 0x87, 0x48, 0x3e, 0x38, 0xfb, 0x22, 0x03, 0x4e, 0x82,
-	0x70, 0x7e, 0x91, 0x29, 0x58, 0xa6, 0x08, 0x23, 0xff, 0x9f, 0xb1, 0x8f, 0xfa, 0xf9, 0x81, 0x8d,
-	0xe9, 0xe1, 0xc4, 0xe6, 0xa8, 0x9e, 0xef, 0x6c, 0x46, 0xd0, 0xa0, 0xa8, 0x26, 0x3e, 0x0b, 0xdf,
-	0xf5, 0x42, 0x92, 0x76, 0x26, 0xc8, 0x42, 0xb3, 0x5b, 0x39, 0x34, 0x95, 0xdf, 0x42, 0x93, 0xa2,
-	0x7a, 0x46, 0x7c, 0x3d, 0x4f, 0x7f, 0x07, 0x7f, 0x28, 0xaa, 0x47, 0x1e, 0xab, 0xf5, 0x59, 0x06,
-	0xcb, 0x8a, 0xae, 0xec, 0xfa, 0x33, 0x00, 0x00, 0xff, 0xff, 0x5a, 0x8c, 0xa6, 0x00, 0x23, 0x03,
-	0x00, 0x00,
+	// 339 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x91, 0x6f, 0x4b, 0xc2, 0x50,
+	0x14, 0xc6, 0x53, 0x51, 0xdc, 0x59, 0x68, 0x5d, 0x25, 0x64, 0x05, 0xc9, 0x20, 0x10, 0x82, 0x09,
+	0x06, 0xbd, 0xb3, 0x10, 0xec, 0x85, 0xfd, 0x43, 0x86, 0xd0, 0xeb, 0xe9, 0x4e, 0xf3, 0xd2, 0xb6,
+	0x6b, 0xf7, 0x9e, 0x09, 0x7d, 0x97, 0x3e, 0x6c, 0x78, 0xef, 0x4c, 0x32, 0x8a, 0x90, 0x5e, 0x9e,
+	0xe7, 0x3c, 0xcf, 0x6f, 0xf7, 0x3c, 0x03, 0x6b, 0x30, 0x1e, 0x79, 0x0b, 0x29, 0x48, 0xb0, 0xea,
+	0x2c, 0x88, 0x31, 0x0d, 0x03, 0xe9, 0x9c, 0x46, 0x42, 0x44, 0x31, 0x76, 0xb5, 0x3e, 0xcd, 0x9e,
+	0xbb, 0xc4, 0x13, 0x54, 0x14, 0x24, 0x0b, 0x63, 0x75, 0xf6, 0x71, 0x89, 0x29, 0x29, 0x33, 0xb9,
+	0x77, 0xc0, 0x66, 0xf3, 0x20, 0x8d, 0xf0, 0x66, 0xa5, 0xfa, 0xf8, 0x9a, 0xa1, 0x22, 0x76, 0x06,
+	0x65, 0xed, 0x6a, 0x15, 0xda, 0x85, 0x8e, 0xdd, 0xab, 0x7b, 0x6b, 0xbc, 0x67, 0x6c, 0x66, 0xcb,
+	0x6a, 0x50, 0xe4, 0x61, 0xab, 0xd8, 0x2e, 0x74, 0x2c, 0xbf, 0xc8, 0x43, 0x77, 0x00, 0x87, 0x5f,
+	0x60, 0x2a, 0x8b, 0x89, 0x35, 0xa1, 0x8c, 0x52, 0x0a, 0xa9, 0x59, 0x96, 0x6f, 0x06, 0x76, 0x04,
+	0x15, 0xa9, 0xf7, 0x3a, 0x5e, 0xf5, 0xf3, 0xc9, 0x7d, 0x04, 0x2b, 0xc2, 0xdf, 0xa3, 0xe7, 0x50,
+	0x31, 0x27, 0xe8, 0xa8, 0xdd, 0x6b, 0x6c, 0xbd, 0xee, 0x9e, 0x2b, 0xf2, 0x73, 0x8b, 0x3b, 0x04,
+	0xd0, 0x3c, 0x73, 0xd7, 0x25, 0x54, 0xc3, 0x80, 0x70, 0xc2, 0x13, 0xcc, 0x4f, 0x73, 0x3c, 0xd3,
+	0x97, 0xb7, 0xee, 0xcb, 0x9b, 0xac, 0xfb, 0xf2, 0x3f, 0xbd, 0xbd, 0xf7, 0x12, 0x94, 0x06, 0xe3,
+	0x11, 0xeb, 0x83, 0xcd, 0x53, 0x85, 0x92, 0xf4, 0x87, 0xd8, 0x76, 0x2f, 0xce, 0xf1, 0x46, 0xf8,
+	0x56, 0x84, 0xbb, 0xc7, 0x6e, 0xc1, 0xce, 0x16, 0x2b, 0xa8, 0x89, 0x9f, 0xfc, 0xe0, 0xd6, 0x6f,
+	0xfd, 0x03, 0x4b, 0x62, 0x22, 0x96, 0xff, 0xc1, 0xea, 0x43, 0x2d, 0x42, 0x1a, 0x06, 0x3c, 0x7e,
+	0xd3, 0x0b, 0xc5, 0x9a, 0x9b, 0xc0, 0xa6, 0x3e, 0xa7, 0xb1, 0xa5, 0xe6, 0xf1, 0x2b, 0xa8, 0x47,
+	0x48, 0x4f, 0x88, 0x2f, 0xbb, 0xe5, 0xaf, 0xe1, 0x20, 0x42, 0x7a, 0x10, 0x29, 0xcd, 0x77, 0x02,
+	0x4c, 0x2b, 0xfa, 0xe7, 0x5d, 0x7c, 0x04, 0x00, 0x00, 0xff, 0xff, 0xf0, 0x38, 0xe5, 0x63, 0x11,
+	0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -294,8 +253,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type APIClient interface {
 	InsertEvent(ctx context.Context, in *Event, opts ...grpc.CallOption) (*ChangeEventResult, error)
-	UpdateEvent(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*ChangeEventResult, error)
-	RemoveEvent(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*ChangeEventResult, error)
+	UpdateEvent(ctx context.Context, in *ChangeEventRequest, opts ...grpc.CallOption) (*ChangeEventResult, error)
+	RemoveEvent(ctx context.Context, in *ChangeEventRequest, opts ...grpc.CallOption) (*ChangeEventResult, error)
 	GetDailyEvents(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResult, error)
 	GetWeeklyEvents(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResult, error)
 	GetMonthlyEvents(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResult, error)
@@ -318,7 +277,7 @@ func (c *aPIClient) InsertEvent(ctx context.Context, in *Event, opts ...grpc.Cal
 	return out, nil
 }
 
-func (c *aPIClient) UpdateEvent(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*ChangeEventResult, error) {
+func (c *aPIClient) UpdateEvent(ctx context.Context, in *ChangeEventRequest, opts ...grpc.CallOption) (*ChangeEventResult, error) {
 	out := new(ChangeEventResult)
 	err := c.cc.Invoke(ctx, "/calendar.API/updateEvent", in, out, opts...)
 	if err != nil {
@@ -327,7 +286,7 @@ func (c *aPIClient) UpdateEvent(ctx context.Context, in *UpdateRequest, opts ...
 	return out, nil
 }
 
-func (c *aPIClient) RemoveEvent(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*ChangeEventResult, error) {
+func (c *aPIClient) RemoveEvent(ctx context.Context, in *ChangeEventRequest, opts ...grpc.CallOption) (*ChangeEventResult, error) {
 	out := new(ChangeEventResult)
 	err := c.cc.Invoke(ctx, "/calendar.API/removeEvent", in, out, opts...)
 	if err != nil {
@@ -366,8 +325,8 @@ func (c *aPIClient) GetMonthlyEvents(ctx context.Context, in *GetRequest, opts .
 // APIServer is the server API for API service.
 type APIServer interface {
 	InsertEvent(context.Context, *Event) (*ChangeEventResult, error)
-	UpdateEvent(context.Context, *UpdateRequest) (*ChangeEventResult, error)
-	RemoveEvent(context.Context, *RemoveRequest) (*ChangeEventResult, error)
+	UpdateEvent(context.Context, *ChangeEventRequest) (*ChangeEventResult, error)
+	RemoveEvent(context.Context, *ChangeEventRequest) (*ChangeEventResult, error)
 	GetDailyEvents(context.Context, *GetRequest) (*GetResult, error)
 	GetWeeklyEvents(context.Context, *GetRequest) (*GetResult, error)
 	GetMonthlyEvents(context.Context, *GetRequest) (*GetResult, error)
@@ -380,10 +339,10 @@ type UnimplementedAPIServer struct {
 func (*UnimplementedAPIServer) InsertEvent(ctx context.Context, req *Event) (*ChangeEventResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertEvent not implemented")
 }
-func (*UnimplementedAPIServer) UpdateEvent(ctx context.Context, req *UpdateRequest) (*ChangeEventResult, error) {
+func (*UnimplementedAPIServer) UpdateEvent(ctx context.Context, req *ChangeEventRequest) (*ChangeEventResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEvent not implemented")
 }
-func (*UnimplementedAPIServer) RemoveEvent(ctx context.Context, req *RemoveRequest) (*ChangeEventResult, error) {
+func (*UnimplementedAPIServer) RemoveEvent(ctx context.Context, req *ChangeEventRequest) (*ChangeEventResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveEvent not implemented")
 }
 func (*UnimplementedAPIServer) GetDailyEvents(ctx context.Context, req *GetRequest) (*GetResult, error) {
@@ -419,7 +378,7 @@ func _API_InsertEvent_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _API_UpdateEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRequest)
+	in := new(ChangeEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -431,13 +390,13 @@ func _API_UpdateEvent_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/calendar.API/UpdateEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APIServer).UpdateEvent(ctx, req.(*UpdateRequest))
+		return srv.(APIServer).UpdateEvent(ctx, req.(*ChangeEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _API_RemoveEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRequest)
+	in := new(ChangeEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -449,7 +408,7 @@ func _API_RemoveEvent_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/calendar.API/RemoveEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(APIServer).RemoveEvent(ctx, req.(*RemoveRequest))
+		return srv.(APIServer).RemoveEvent(ctx, req.(*ChangeEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

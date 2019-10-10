@@ -16,6 +16,11 @@ func GetConfig() map[string]interface{} {
 	}
 	m["outputs"] = viper.GetStringSlice("logger.outputs")
 	m["logLevel"] = viper.GetString("logger.level")
+	m["user"] = viper.GetString("db.user")
+	m["password"] = viper.GetString("db.password")
+	m["sslmode"] = viper.GetString("db.sslmode")
+	m["host"] = viper.GetString("db.host")
+	m["dbname"] = viper.GetString("db.dbname")
 
 	return m
 }

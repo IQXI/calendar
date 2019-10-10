@@ -2,6 +2,7 @@ package main
 
 import (
 	cfg "calendar/internal/config"
+	"calendar/internal/interfaces"
 	lg "calendar/internal/logger"
 	pb "calendar/internal/proto"
 	"calendar/internal/services"
@@ -14,8 +15,10 @@ func main() {
 
 	logger.Info("Service loading!")
 
+	psql := interfaces.NewPSQL(logger, cfg.GetConfig())
+
 	//создаем структуру
-	sch := services.NewScheduler(logger)
+	sch := services.NewScheduler(logger, psql)
 
 	//обьявляем TCP листенер на 5454 порту
 	netListener, err := net.Listen("tcp", "localhost:50051")

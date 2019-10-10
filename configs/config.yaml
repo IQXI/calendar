@@ -1,3 +1,9 @@
 logger:
   level: INFO
   outputs: [stderr, logs\\main.log]
+db:
+  user: user
+  password: 123456789
+  sslmode: disable
+  host: localhost
+  dbname: calendar

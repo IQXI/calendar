@@ -4,8 +4,10 @@ import (
 	pb "calendar/internal/proto"
 	"context"
 	"fmt"
+	"github.com/golang/protobuf/ptypes"
 	"google.golang.org/grpc"
 	"log"
+	"time"
 )
 
 func main() {
@@ -19,14 +21,19 @@ func main() {
 
 	client := pb.NewAPIClient(conn)
 
+	tm, _ := ptypes.TimestampProto(time.Now())
+
 	event := pb.Event{
-		UUID:            1,
+		UUID:            "1",
 		Header:          "1",
-		DateTime:        nil,
+		DateTime:        tm,
 		Description:     "2",
 		Owner:           "3",
 		MailingDuration: 0,
-		EventDuration:   nil,
+		EventDuration: &pb.EventDuration{
+			Start: tm,
+			Stop:  tm,
+		},
 	}
 
 	result, err := client.InsertEvent(context.Background(), &event)

@@ -4,12 +4,9 @@ package calendar;
 import "google/protobuf/timestamp.proto";
 import "events.proto";
 
-message updateRequest {
+message changeEventRequest {
     Event event = 1;
-    int32 id = 2;
-}
-message removeRequest {
-    int32 id = 2;
+    string id = 2;
 }
 
 message changeEventResult {
@@ -28,8 +25,8 @@ message getRequest {
 
 service API {
     rpc insertEvent(Event) returns(changeEventResult) {}
-    rpc updateEvent(updateRequest) returns(changeEventResult) {}
-    rpc removeEvent(removeRequest) returns(changeEventResult) {}
+    rpc updateEvent(changeEventRequest) returns(changeEventResult) {}
+    rpc removeEvent(changeEventRequest) returns(changeEventResult) {}
     rpc getDailyEvents(getRequest) returns(getResult) {}
     rpc getWeeklyEvents(getRequest) returns(getResult) {}
     rpc getMonthlyEvents(getRequest) returns(getResult) {}
