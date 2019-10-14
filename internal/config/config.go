@@ -21,6 +21,11 @@ func GetConfig() map[string]interface{} {
 	m["sslmode"] = viper.GetString("db.sslmode")
 	m["host"] = viper.GetString("db.host")
 	m["dbname"] = viper.GetString("db.dbname")
+	m["rabbitmq.user"] = viper.GetString("rabbitmq.user")
+	m["rabbitmq.password"] = viper.GetString("rabbitmq.password")
+	m["rabbitmq.host"] = viper.GetString("rabbitmq.host")
+	m["rabbitmq.vhost"] = viper.GetString("rabbitmq.vhost")
+	m["rabbitmq.port"] = viper.GetString("rabbitmq.port")
 
 	return m
 }

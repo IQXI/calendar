@@ -7,3 +7,10 @@ db:
   sslmode: disable
   host: localhost
   dbname: calendar
+rabbitmq:
+  user: user
+  password: password
+  host: localhost
+  port: 5672
+  vhost: my_vhost
+
