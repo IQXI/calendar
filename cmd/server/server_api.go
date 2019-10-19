@@ -25,7 +25,7 @@ func main() {
 	sch := services.NewAPI(logger, psql)
 
 	//обьявляем TCP листенер на 50051 порту
-	netListener, err := net.Listen("tcp", "localhost:50051")
+	netListener, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		logger.Error(err.Error())
 	}

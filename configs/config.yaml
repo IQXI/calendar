@@ -1,16 +1,16 @@
 logger:
   level: INFO
-  outputs: [stderr, logs\\main.log]
+  outputs: [stderr, logs/main.log]
 db:
   user: user
   password: 123456789
   sslmode: disable
-  host: localhost
+  host: db
   dbname: calendar
 rabbitmq:
   user: user
   password: password
-  host: localhost
+  host: rabbitmq
   port: 5672
   vhost: my_vhost
 
